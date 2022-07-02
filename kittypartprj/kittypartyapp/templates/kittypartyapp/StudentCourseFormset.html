@@ -1,0 +1,33 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <h2>Add course</h2>
+    {{ scformsetobj.management_form }}
+    
+    <input type="button" value="Addmore" id="btnAddMoreCourse"/>
+   
+       
+    <ul style="list-style-type: none;" class="course_container">
+        
+        {%for form in scformsetobj%}
+        {%if forloop.first%}
+       {{form.student}}
+      
+       
+        {%endif%}
+        <li>
+            {{form.course}}
+            {{form.startdate}}
+            {{form.enddate}}
+            {{form.percentageofcompletion}}
+            {{form.status}}
+            {{form.DELETE}}
+        </li>
+        {%endfor%}
+
+    </ul>
+    
+    <input type="submit" class="btn btn-danger" value="Save" />
+</form>
+{%endblock%}

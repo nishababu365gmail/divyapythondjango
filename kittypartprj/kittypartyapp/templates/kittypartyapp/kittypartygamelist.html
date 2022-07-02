@@ -1,0 +1,32 @@
+{% extends 'kittypartyapp\base.html'%}
+
+{%block body_content%}
+<form method="POST">
+    {%csrf_token%}
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Party Name
+                </th>
+                <th>
+                    Edit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for party in partylist%}
+            <tr>
+                <td>
+                    {{party.partyname}}
+                </td>
+                <td>
+                    <a href="{% url 'addkittyartygame' partyid=party.partyid%}" class="btn btn-info">Edit</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+
+</form>
+{%endblock%}

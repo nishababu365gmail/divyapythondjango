@@ -1,0 +1,15 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<p>I am Parts form</p>
+<p>{{jobcard}}</p>
+<form method="post" action={% url 'mfp' %}>
+    <input type="hidden" name="partsjobcard" value={{jobcard}}/>
+    {%csrf_token%}
+    <table>
+        <tr style="display:flex ;flex-direction:row">
+        {{formset}}
+    </tr>
+    </table>
+    <input type="submit" value="Save Flower"/>
+</form>
+{%endblock%}

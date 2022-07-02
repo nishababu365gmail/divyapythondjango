@@ -1,0 +1,11 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <h2>{{Title}}</h2>
+    <table>
+        {{myform.as_table}}
+    </table>
+    <input type="submit" class="btn btn-danger" value="Save" />
+</form>
+{%endblock%}

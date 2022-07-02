@@ -1,0 +1,49 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <h2>{{Title}}</h2>
+    {% regroup menulist by menuid.categoryid.categoryname as newlist%}
+    {% for items in newlist%}
+    <ul>
+        <h4>{{items.grouper}}</h4>
+        {% for item in items.list%}
+        <li>
+            {{item.menuid.menuname}}
+        </li>
+        {%endfor%}
+
+    </ul>
+    {%endfor%}
+    <table>
+        <tbody>
+            
+            <tr>
+                
+                <td>
+                    {% regroup menulist by menuid.categoryid.categoryname as newlist%}
+            {% for items in newlist%}
+                    <table>
+                        <thead>
+                        
+                            <th class="pointer" data-toggle="collapse" data-target='#{{items.grouper|cut:" "}}'>{{items.grouper}}</th>
+                        </thead>
+                        <tbody id='{{items.grouper|cut:" "}}'>
+                            {% for item in items.list%}
+                            <tr>
+                                <td> {{item.menuid.menuname}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                    {%endfor%}
+                </td>
+            </tr>
+          
+        </tbody>
+    </table>
+<table>
+    {{entelist.as_table}}
+</table>
+</form>
+{%endblock%}

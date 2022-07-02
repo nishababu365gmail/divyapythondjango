@@ -1,0 +1,37 @@
+{% extends "kittypartyapp/base.html" %}
+
+{% block body_content %}
+
+
+<form method="POST">
+    {%csrf_token%}
+    <center>
+        <!-- {%for item in mylist%}
+
+        {{item}}
+        {%endfor%} -->
+{%regroup mylist by partyid as partylist%}
+<ul>
+{%for partyitems in partylist%}
+{{partyitems.grouper}}</br>
+<li>
+
+{%regroup partyitems.list|dictsort:"menuid.categoryid.categoryname" by menuid.categoryid.categoryname as catlist%}
+{%for cat in catlist%}
+{{cat.grouper}}</br>
+<ul>
+    <li>
+{% for item in cat.list%}
+
+{{item.menuid.menuname|add:','}}
+{%endfor%}
+</li>
+</ul>
+{%endfor%}
+</li>
+{%endfor%}
+</ul>
+    </center>
+
+</form>
+{%endblock%}

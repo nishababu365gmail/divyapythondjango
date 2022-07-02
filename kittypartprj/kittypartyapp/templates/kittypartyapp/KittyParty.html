@@ -1,0 +1,131 @@
+{% extends "kittypartyapp/base.html" %}
+
+{% block body_content %}
+
+{%load static%}
+<form method="POST">
+    {%csrf_token%}
+    <center>
+        <table>
+            {{myform.as_table}}
+
+        </table>
+    </center>
+    </br>
+    <center>
+        <div class="row">
+            <div class="col-md-1">
+                <input id="btnSaveParty" style="width:20px;height:10px" type="button" value="+"
+                    class="btn btn-danger" />
+            </div>
+            <div class="col-md-4">
+                <input type="button" value="Add More" id="add_more">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="idgame">
+
+                    <!-- <table>
+                        {{formset.as_table}}
+                    </table> -->
+                    {{ formset.management_form }}
+                    {% for form in formset %}
+                    <!-- {{ form.auto_id }} -->
+                    {{ form.id }}
+
+                    <div id="form_set">
+                        <table class='no_error' style="width:300px">
+                            <thead>
+                                <tr>
+                                    <th>Game</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{form.gameid}}</td>
+                                    <td>{{form.DELETE}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col=md-12">
+            <div id="empty_form" style="display:none">
+                <table class='no_error'>
+                    {{ formset.empty_form.as_table }}
+
+                </table>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <input id="btnShowInvitee" style="width:20px;height:10px" type="button" value="+"
+                    class="btn btn-danger" />
+            </div>
+            <div class="col-md-4">
+                <input type="button" value="Add More" id="add_more_inv">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div id="dividinvitee">
+
+                    {{ inviteeformset.management_form }}
+                    {% for form in inviteeformset %}
+                    <!-- {{ form.auto_id }} -->
+                    {{ form.id }}
+
+                    <div id="form_set_invitee">
+                        <table class='no_error' style="width: 300px">
+                            <thead>
+                                <tr>
+                                    <th>Invitee</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="width: 300px;">{{form.inviteeid}}</td>
+                                    <td>{{form.DELETE}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            <div id="empty_form_invitee" style="display:none">
+                <table class='no_error'>
+                    {{ inviteeformset.empty_form.as_table }}
+
+                </table>
+            </div>
+        
+
+        <!-- <table>
+                        {{inviteeformset.as_table}}
+                    </table> -->
+        <!-- </div>
+        </div>
+        </div> -->
+
+
+
+        <input type="submit" value="Save party" class="btn btn-info" />
+    </center>
+
+</form>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>
+                    Party Name
+                </th>
+                <th>
+                    Edit
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for party in partylist%}
+            <tr>
+                <td>
+                    {{party.partyname}}
+                </td>
+                <td>
+                    <a href="{% url 'kittypartyinvitee' partyid=party.partyid%}" class="btn btn-info">Edit</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table> -->
+    <table>
+        <thead>
+<tr>
+    <th>name</th>
+    <th>age</th>
+    <th>adhar</th>
+</tr>
+        </thead>
+        <tbody>
+            {% for items in mydict%}
+            
+            <tr>
+            {%for item in items.items%}
+            
+                <td>
+                    {{item.1}}
+                </td>
+           
+            {%endfor%}
+        </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <center>
+    <div class="container">
+    <div class="row">
+    {% for party in partylist%}
+    <div class="col-sm-3">
+    <div class="card text-center " style="display: inline-block;">
+       
+        <div class="card-header">
+            <h3>{{party.partyname}}</h3>
+          </div>
+        <h6 class="card-title"></h6>
+      
+        <div class="card-body">
+         <div>{{party.partyvenue}}</div>
+         <div>{{party.partydate}}</div>
+        </div>
+         <div class="card-footer">
+            <a href="{% url 'kittypartyinvitee' partyid=party.partyid%}" class="btn btn-info">Edit</a>
+          </div>
+        
+        
+       
+      </div>
+    
+    </div>
+    {%endfor%}
+    </div>
+</div>
+</center>
+</form>
+
+{%endblock%}

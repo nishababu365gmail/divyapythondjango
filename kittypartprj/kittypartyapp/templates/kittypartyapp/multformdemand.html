@@ -1,0 +1,24 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<p>I am demand form</p>
+<p>{{jobcard}}</p>
+<form method="post" action={% url 'mfd' %}>
+    {%csrf_token%}
+    <input type="hidden" name="demandjobcard" value={{jobcard}}/>
+    <table>
+        <tr style="display:flex ;flex-direction:row">
+        {{formset}}
+        
+    </tr>
+    </table>
+    <div style="display:flex;flex-direction:row">
+    <input type="submit" value="Save Student"/>
+   
+  
+    </div>
+</form>
+<form method="get" action={% url 'kk' %}>
+    <input type="hidden" name="demandjobcard" value={{jobcard}}/>
+    <input type="submit" id="backindemand" value="back"/>
+</form>
+{%endblock%}

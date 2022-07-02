@@ -1,0 +1,25 @@
+{% extends 'kittypartyapp\base.html'%}
+
+{%block body_content%}
+<form method="POST" id="form-container">
+    {%csrf_token%}
+    <center>
+        <div id="containergame">
+            <table>
+                {{kittypartyform.as_table}}
+            </table>
+        </div>
+        <button id="AddMoreGames" type="button">Add Another Game</button>
+        <ul style="list-style-type: none;" class="game_container">
+            {{formset.management_form}}
+            {%for form in formset%}
+            <li>
+                {{form}}
+            </li>
+            {%endfor%}
+
+        </ul>
+        <input type="submit" value="Save Game" />
+    </center>
+</form>
+{%endblock%}

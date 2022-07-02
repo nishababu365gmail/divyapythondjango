@@ -1,0 +1,61 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <center>
+        <div class="partycard">
+            <div class="partycard-header">Create Party</div>
+            <div class="card-body">
+            <table>
+            {{myform.as_table}}
+            </table>
+            </div>
+        </div>
+    </center>
+    <div class="col-md-4">
+        <input type="button" value="Add More" id="add_more_inv">
+    </div>
+    {{ inviteeform.management_form }}
+    {% for form in inviteeform%}
+    {{form.id}}
+    <center>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        inviteee
+                    </th>
+                    <th>
+                        delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {{form.inviteeid}}
+                    </td>
+                    <td>
+                        {{form.DELETE}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+    {%endfor%}
+    <center>
+        <br>
+        
+        <input type="submit" value="Save party" class="btn btn-info" />
+    
+    </center>
+    <div id="empty_form_invitee" style="display:none">
+        <table class='no_error'>
+            {{ inviteeform.empty_form.as_table }}
+
+        </table>
+    </div>
+
+</form>
+{%endblock%}

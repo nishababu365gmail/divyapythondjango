@@ -1,0 +1,43 @@
+{% extends 'kittypartyapp\base.html'%}
+
+{%block body_content%}
+{%load custom_tags%}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width:5px">suppliername</th>
+            <th style="width:5px">purchaseno</th>
+            <th style="width:5px">4</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            
+            <th style="width:5px">5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           {%for item in listmain%}
+           
+            
+                {%for inneritem in item%}
+
+                  {% for thirditem in inneritem%}
+                   <td>{{thirditem.1}}</td>
+                   {%endfor%}
+                   {%endfor%}
+            
+           
+           {%endfor%}
+    </tr>
+    </tbody>
+</table>
+<form method="post">
+    {%csrf_token%}
+<input type="text" id="txtcheck" />
+<input type="button" id="btncheck" value="Create Check Box"/>
+<input type="submit" id="btnsubmit" value="Sumbit"/>
+<input type="hidden" id="hdcheck" name="hdnamecheck" />
+<div id="divcheck"></div>
+</form>
+{%endblock%}

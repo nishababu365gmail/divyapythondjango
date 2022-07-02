@@ -1,0 +1,26 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <!-- <input type="text" name="jobcard" id ="txtjobcard" value="{{jobcard}}"/> -->
+    {{formset}}
+    <input type="hidden" name="babuname" value="babu"/>
+    <input type="submit" class="btn btn-danger" value="Save" />
+</form>
+<div style="display:flex;width:100px;flex-direction:row;justify-content:space-between">
+<form method="GET" action={% url 'mfd' %}>
+    {%csrf_token%}
+<input type="hidden" name="maaniname" value="maani"/>
+<input type="hidden" name="demandjobcard" id="hdjobcarddemand" value="{{jobcard}}"/>
+<!-- <a class="btn btn-primary" href="{% url 'mfd' %}">Demand</a> -->
+<input type="submit" id="btndemand" value="Demand"/>
+</form>
+<form method="GET" action={% url 'mfp' %}>
+    {%csrf_token%}
+<input type="hidden" name="vavaname" value="vava"/>
+<input type="hidden" name="partsjobcard" id="hdjobcardparts" value="{{jobcard}}" />
+<!-- <a class="btn btn-danger" href="{% url 'mfp' %}">Parts Anchor</a> -->
+<input type="submit" id="btnparts" value="Parts"/>
+</form>
+</div>
+{%endblock%}

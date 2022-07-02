@@ -1,0 +1,24 @@
+{% extends 'kittypartyapp/base.html'%}
+{% block body_content %}
+<form method="POST">
+    {%csrf_token%}
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Edit</th>
+        </thead>
+        <tbody>
+            {%for item in mylist%}
+            <tr>
+                <td>
+                    {{item.categoryid}}
+                </td>
+                <td>{{item.categoryname}}</td>
+                <td><a href="{% url 'editcategory' catid=item.categoryid%}">Edit</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</form>
+{%endblock%}

@@ -1,0 +1,45 @@
+<html>
+<body>
+<script>
+    function myFunction() {
+      var h = document.getElementById("empty_form").querySelector("table")
+      var nisha=h.querySelector('tbody').innerHTML
+      console.log(nisha)
+      //var nisha=h.querySelector('tbody').outerHTML
+      //var table = document.getElementById('mytable')
+      var table = document.querySelector('#mytable')
+     
+      table.innerHTML=table.innerHTML+nisha
+      
+      
+    }
+    </script>
+<button onclick="myFunction()">Insert a paragraph</button>
+<div style="overflow-y: auto;height: 200px;width:300px">
+<table id="mytable">
+    <thead>
+        <th>
+            name
+        </th>
+        <th>
+            Age
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text"/></td>
+            <td><input type="text"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div id="empty_form" style="display: none;">
+    <table>
+    <tr>
+        <td><input type="text"/></td>
+        <td><input type="text"/></td>
+    </tr>
+    </table>
+</div>
+</body>
+</html>

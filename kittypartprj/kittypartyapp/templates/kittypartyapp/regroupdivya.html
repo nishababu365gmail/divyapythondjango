@@ -1,0 +1,65 @@
+{% extends 'kittypartyapp\base.html'%}
+
+{%block body_content%}
+{%load custom_tags%}
+<table>
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Region</th>
+            <th>Name</th>
+            <th>Population</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% regroup mylist by country as firstlist%}
+        {% for item in firstlist%}  
+           
+            {% regroup item.list by Region as secondlist%}
+            <tr>
+                <td>{{item.grouper}}ct</td> 
+                
+              {%for iteminner in secondlist%}
+              
+              {% if forloop.first%}
+              <td>{{iteminner.grouper}}rg</td> 
+              <td>                  
+              </td>
+              <td>                  
+            </td>
+              <td>{{ iteminner.list|modify_name}}</td>
+              {%else%}
+              <td></td>
+              <td>{{iteminner.grouper}}rg</td>
+              <td></td>
+              <td></td>
+              <td>{{ iteminner.list|modify_name}}</td>
+                {%endif%}
+              
+                
+            </tr>
+            {%for thirdinner in iteminner.list%}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{thirdinner.name}}</td>
+                <td>{{thirdinner.population}}</td>
+                
+            </tr>
+            {%endfor%}
+              {%endfor%}
+              
+        {%endfor%}
+          
+                
+        <tr> 
+            <td>
+
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+{%endblock%}

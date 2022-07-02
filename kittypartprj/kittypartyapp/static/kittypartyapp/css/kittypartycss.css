@@ -1,0 +1,99 @@
+
+
+
+body{
+    width:100%;
+    align-items: center;
+    background-color: #EFEBE9;
+    
+}
+.navbar{
+  background-color: #D7CCC8;
+}
+.datepickerclass{
+width: 100px;
+background-color: blue;
+
+}
+.select2{
+    width: 100px;
+    
+}
+
+.special{
+    
+
+pointer-events: none; 
+}
+
+ .card {
+    background-color: #BDBDBD;
+    color: white;
+    padding: 1rem;
+    height: 15rem;
+    margin-bottom: 5px;
+    width: 100%;    
+    padding: 3px;
+    border-radius: 10px;
+  }
+  .card-header{
+      background-color: #ebb111;
+      border-radius: inherit;
+      
+      
+  }
+  .card-footer{
+    background-color: #f5cd60;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+  .card-header:first-child {
+    border-radius: 10px;
+  }
+.kitty-party-card-header{
+  background-color: #ebb111;
+  background-image: linear-gradient(to right,#9D9D9E,#E0E0E0);
+  border-radius: 9px;
+}
+  .card-body{
+    background-color: #ebb111;
+  }
+  .partycard{
+    background-color: #BDBDBD;
+    color: white;
+    padding: 1rem;
+    height: auto;
+    margin-bottom: 20px;
+    width: 50%;    
+    padding: 3px;
+    border: solid blue 2px;
+  }
+.partycard-header{
+  background-color: lightblue;
+  background-image: linear-gradient(to right,#9E9E9E,#E0E0E0);
+}
+  .btn{
+    background-color: #795548;
+  }
+  .input{
+    background-color:#795548;
+  }
+ /* .cards {
+    max-width: inherit;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 5rem;
+  }
+  
+  /* Screen larger than 600px? 2 column */
+ /* @media (min-width: 600px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  /* Screen larger than 900px? 3 columns */
+ /* @media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(1, 1fr); }
+  }
+
+  
+   */
